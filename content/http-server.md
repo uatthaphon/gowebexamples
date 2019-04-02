@@ -1,26 +1,27 @@
 +++
 weight = 2
-title = "HTTP Server"
-description = "This example shows how to use the `net/http` package to create a HTTP server with handlers and static files."
+title = "HTTP เซิร์ฟเวอร์"
+
+description = "ตัวอย่างการสร้าง HTTP server โดยใช้แพคเกจ net/http เพื่อสร้าง HTTP server และการสร้าง Handler รวมถึง สแตติกไฟล์ "
 +++
 
-# HTTP Server
+# HTTP เซิร์ฟเวอร์
 
-## Introduction
-In this example you will learn how to create a basic HTTP server in Go.
-First, let's talk about what our HTTP server should be capable of.
-A basic HTTP server has a few key jobs to take care of.
+## เกี่ยวกับบทเรียน
+จากบทเรียนตัวอย่างคุณจะได้เรียนรู้การสร้าง HTTP server ขั้นพื้นฐานด้วยภาษา Go
+อย่างแรกเลย เรามาดูกันดีกว่าว่า HTTP server ที่เราจะสร้าง มันควรที่จะทำอะไรได้บ้าง
+โดยพื้นฐานแล้ว HTTP server มีหน้าที่หลักๆ ดังต่อไปนี้
 
-* *Process dynamic requests:* Process incoming requests from users who browse the website, log into their accounts or post images.
-* *Serve static assets:* Serve JavaScript, CSS and images to browsers to create a dynamic experience for the user.
-* *Accept connections:* The HTTP Server must listen on a specific port to be able to accept connections from the internet.
+* *ประมวลผลรีเควสที่ถูกส่งมา:* คือการประมวลผลจาก รีเควสที่ถูกส่งมาจากผู้ใช้งานที่เรียกมาจากเบราว์เซอร์ เมื่อพวกเขาทำการเปิดดูเว็บไซต์  ไม่ว่าจะเป็นการล็อกอินเข้าสู่ระบบ หรือการโพสต์รูปภาพเป็นต้น
+* *เสิร์ฟสแตติกไฟล์:* ไม่ว่าจะเป็นการเสิร์ฟ JavaScript, CSS หรือไฟล์รูปภาพไปยังเบราว์เซอร์ เพื่อการสร้างประสบการณ์การรับรู้แบบไดนามิกให้กับผู้ใช้งานของเรา
+* *รอรับการเชื่อมต่อ:* HTTP Server จะถูกเปิดไว้เพื่อรอรับรีเควสจากพอร์ตที่เราได้กำหนดไว้ เมื่อมีการร้องของมาจากอินเทอร์เน็ต
 
 {{< edison >}}
 
-## Process dynamic requests
-The `net/http` package contains all utilities needed to accept requests and handle them dynamically.
-We can register a new handler with the `http.HandleFunc` function. It's first parameter takes a path to match and a function to execute as a second.
-In this example: When someone browses your websites (`http://example.com/`), he or she will be greeted with a nice message.
+## ประมวลผลรีเควสที่ถูกส่งมา
+net/http แพคเกจ ประกอบไปด้วยตัวช่วยที่จำเป็นทั้งหมดสำหรับรองรับรีเควสที่เข้ามา เราจะสามารถจัดการกับมันได้แบบไดนามิก
+เราสามารถสร้าง handler ได้ด้วย `http.HandleFunc` ฟังก์ชั่น ตัวแปรแรกทำการรับ path สำหรับจับคู่เส้นทาง และตัวแปรตัวที่สองรับฟังก์ชั่นที่ใช้สำหรับจัดการสิ่งต่างๆ
+จากตัวอย่างด้านล่าง เมื่อผู้ใช้งานเรียกหน้าเว็บผ่านเบราว์เซอร์เพื่อเข้าสู่เว็บไซต์ของคุณ (`http://example.com/`) และพวกเขาจะเห็นกับข้อความต้อนรับที่อบอุ่น
 
 {{< highlight go >}}
 http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
@@ -28,32 +29,31 @@ http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
 })
 {{< / highlight >}}
 
+สำหรับการรับค่าแบบไดนามิกที่พูดถึงก่อนหน้านี้จะเห็นภาพได้ชัดขึ้นเมื่ออ่านย่อหน้านี้จบ `http.Request` จะประกอบไปด้วยข้อมูลทั้งหมดเกี่ยวกับรีเควสที่ถูกส่งเข้ามารวมถึงตัวแปรอื่นๆ
+เราสามารถอ่านค่าตัวแปร GET ได้ด้วย `r.URL.Query().Get("token")` หรือค่าตัวแปร POST (ค่าที่ถูกส่งมาจาก HTML ฟอร์ม) ได้ด้วย `r.FormValue("email")`
 
-For the dynamic aspect, the `http.Request` contains all information about the request and it's parameters.
-You can read GET parameters with `r.URL.Query().Get("token")` or POST parameters (fields from an HTML form) with `r.FormValue("email")`.
-
-## Serving static assets
-To serve static assets like JavaScript, CSS and images, we use the inbuilt `http.FileServer` and point it to a url path.
-For the file server to work properly it needs to know, where to serve files from. We can do this like so:
+## เสิร์ฟสแตติกไฟล์
+การเสิร์ฟ JavaScript, CSS หรือไฟล์รูปภาพ เราสามารถเรียกใช้บิวท์อินฟังก์ชั่น `http.FileServer` เพื่อระบุ url ที่เราเก็บไฟล์ต่างๆเอาไว้
+สำหรับการที่เราจะทำให้ไฟล์เซิร์ฟเวอร์ทำงานได้อย่างถูกต้องเราจำเป็นต้องรู้ว่าไฟล์ที่เราจะเสิร์ฟมาจากไหน เราสามารถทำได้โดย
 {{< highlight go >}}
 fs := http.FileServer(http.Dir("static/"))
 {{< / highlight >}}
 
-Once our file server is in place, we just need to point a url path at it, just like we did with the dynamic requests.
-One thing to note: In order to serve files correctly, we need to strip away a part of the url path. Usually this is the name of the directory our files live in.
+เมื่อเรามีไฟล์ที่เราต้องการจะเสิร์ฟอยู่ในโฟลเดอร์ที่เราเตรียมเอาไว้เรียบร้อยแล้ว สิ่งที่เราต้องทำในขั้นต่อไปก็เพียงแค่ระบุที่ที่มันอยู่
+วิธีการก็เหมือนกับตอนที่เรารับรีเควสแบบไดนามิกก่อนหน้านี้ ส่ิงหนึ่งที่ควรระวังคือ ในการที่เราจะเสิร์ฟไฟล์ได้อย่างถูกต้อง เราต้องเอาชื่อที่อยู่ของ url ที่ได้ระบุเอาไว้ออกไปซะ เพราะโดยปรกติแล้วมันเป็นชื่อของไดเรกทอรีที่เราเก็บไฟล์เหล่านั้นเอาไว้
 {{< highlight go >}}
 http.Handle("/static/", http.StripPrefix("/static/", fs))
 {{< / highlight >}}
 
-## Accept connections
-The last thing to finish off our basic HTTP server is, to listen on a port to accept connections from the internet.
-As you can guess, Go has also an inbuilt HTTP server, we can start faily quickly. Once started, you can view your HTTP server in your <a href="http://localhost/" target="_blank">browser.</a>
+## รอรับการเชื่อมต่อ
+ส่ิงสุดท้ายที่จำเป็นที่จะทำให้ HTTP server พื้นฐานของเราเสร็จสมบูรณ์ได้ ก็คือการรับรีเควสที่เข้ามาจากพอร์ตที่เราได้กำหนดไว้จากอินเทอร์เน็ต
+คุณเดาไว้ไม่ผิดหรอกครับ ภาษา Go มี HTTP server บิวท์อินฟังก์ชั่นเพื่อช่วยในเรื่องนี้อีกแล้วครับท่าน เรามาเริ่มกันอย่างรวดเร็วกันเลยดีกว่าครับ จากนั้นเราก็ที่จะสามารถดูเว็บไซต์ของเราได้ผ่านทาง <a href="http://localhost/" target="_blank">เบราว์เซอร์</a>
 {{< highlight go >}}
 http.ListenAndServe(":80", nil)
 {{< / highlight >}}
 
-## The Code (for copy/paste)
-This is the complete code that you can use to try out the things you've learned in this example.
+## โค้ด (สำหรับทดสอบ copy/paste)
+นี่เป็นตัวโค้ดที่เสร็จสมบูรณ์ ซึ่งคุณสามารถนำไปใช้ทดสอบได้ เป็นโค้ดที่คุณได้เรียนรู้มาทั้งหมดในบทเรียนบทนี้
 {{< highlight go >}}
 package main
 
