@@ -1,51 +1,50 @@
 +++
 weight = 1
 title = "Hello World"
-description = "This examples shows how to create an HTTP server using the net/http package from the standard library. It contains all functionalities about the HTTP protocol."
+description = "ตัวอย่างการสร้าง HTTP server โดยใช้แพคเกจ net/http จากสแตนดาร์ดไลบรารี่ ซึ่งมีฟังก์ชั่นสำหรับการใช้งานโปรโตคอล HTTP ทั้งหมด"
 +++
 
 # Hello World
 
-## Introduction
-Go is a battery included programming language and has a webserver already built in.
-The `net/http` package from the standard library contains all functionalities about the HTTP protocol.
-This includes (among many other things) an HTTP client and an HTTP server.
-In this example you will figure out how simple it is, to create a webserver that you can view in your browser.
+## บทนำ
+ภาษา Go เป็นภาษาที่มีมาพร้อมกับสิ่งอำนวยความสะดวกที่จำเป็นสำหรับการใช้งาน และมีเว็บเซิร์ฟเวอร์ในตัวพร้อมสำหรับการใช้งาน แพคเกจ `net/http` ซึ่งมีอยู่ในสแตนดาร์ดไลบรารี่มีฟังก์ชันการทำงานที่เพรียบพร้อมสำหรับ HTTP โปรโตคอล และอื่นๆอีกมากมาย ทั้งในส่วนของ HTTP client  และ HTTP server
+ตัวอย่างที่เรามีให้จะทำให้คุณเห็นภาพว่ามันง่ายขนาดไหน ที่เราจะทำการสร้างเว็บเซิร์ฟเวอร์ที่จะทำให้คุณสามารถที่จะเปิดดูได้จากเบราว์เซอร์ของคุณ
 
 {{< edison >}}
 
-## Registering a Request Handler
-First, create a Handler which receives all incomming HTTP connections from browsers, HTTP clients or API requests.
-A handler in Go is a function with this signature:
+## การจัดการ Request
+ขั้นแรก เราจะทำการสร้าง Handler ซึ่งทำหน้าที่รับข้อมูล HTTP ที่ถูกส่งเข้ามาทั้งหมดจากเบราว์เซอร์ ไม่ว่าจะมาจาก HTTP client หรือ API
+
+Handler ในภาษา Go เราสามารถเขียนเป็นฟังก์ชั่นได้ตามตัวอย่างทางด้านล่าง
 {{< highlight go >}}
 func (w http.ResponseWriter, r *http.Request)
 {{< / highlight >}}
+จากฟังก์ชั่นจะมีการรับค่า:
 
-The function receives two parameters:
+1. `http.ResponseWriter` ซึ่งเป็นส่วนที่เราจะใช้เพื่อเขียนข้อมูล text/html ก่อนที่จะค่าส่งกลับไป
+2. `http.Request` เป็นส่วนเก็บข้อมูลจาก HTTP request ทั้งหมดเมื่อมีการเรียกเข้ามาซึ่งจะประกอบไปด้วย ข้อมูล URL และข้อมูล header ทั้งหมด
 
-1. An `http.ResponseWriter` which is where you write your text/html response to.
-2. An `http.Request` which contains all information about this HTTP request including things like the URL or header fields.
-
-Registering a request handler to the default HTTP Server is as simple as this:
+การสร้าง Request Handler จากฝั่ง Server ก็สามารถสร้างได้ง่ายๆ ดังนี้:
 {{< highlight go >}}
 http.HandleFunc("/", func (w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "Hello, you've requested: %s\n", r.URL.Path)
 })
 {{< / highlight >}}
 
-## Listen for HTTP Connections
-The request handler alone can not accept any HTTP connections from the outside.
-An HTTP server has to listen on a port to pass connections on to the request handler.
-Because port 80 is in most cases the default port for HTTP traffic, this server will also listen on it.
 
-The following code will start Go's default HTTP server and listen for connections on port 80.
-You can navigate your browser to `http://localhost/` and see your server handing your request.
+## การเชื่อมต่อ HTTP
+ตัว Request Handler โดดๆ ไม่สามารถที่จะรับค่าจาก HTTP ได้ เพราะ HTTP server ต้องรอรับข้อมูลจากพอร์ตสำหรับการเชื่อมต่อและรอรับข้อมูลเมื่อมีรีเควสเข้ามา
+พอร์ต 80 เป็นพอร์ตยอดนิยมและมักจะเป็นค่าเริ่มต้นสำหรับการับส่งข้อมูล HTTP ดังนั้นเซิร์ฟเวอร์ที่พวกเราจะทำการสร้างก็จะรับข้อมูลโดยพอร์ตนี้ด้วยเช่นเดียวกัน
+
+โค้ดต่อไปนี้มีหน้าที่สั่งให้เริ่มต้นใช้งาน HTTP server และรอรับข้อมูลจากเชื่อมต่อผ่านพอร์ต 80 คุณสามารถเปิดเบราว์เซอร์และเชื่อมต่อด้วยการพิมพ์ที่อยู่ `http://localhost/` เพื่อดูว่าเซิร์ฟเวอร์ที่เราเพิ่งสร้างจะแสดงผลอย่างไร
+
 {{< highlight go >}}
 http.ListenAndServe(":80", nil)
 {{< / highlight >}}
 
-## The Code (for copy/paste)
-This is the complete code that you can use to try out the things you've learned in this example.
+## โค้ด (สำหรับทดสอบ copy/paste)
+นี่เป็นตัวโค้ดที่เสร็จสมบูรณ์ ซึ่งคุณสามารถนำไปใช้ทดสอบได้ เป็นโค้ดที่คุณได้เรียนรู้มาทั้งหมดในบทเรียนบทนี้
+
 {{< highlight go >}}
 package main
 
