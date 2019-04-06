@@ -1,51 +1,58 @@
 +++
 weight = 2
-title = "Routing (using gorilla/mux)"
-description = "This example shows how to use the `gorilla/mux` package to create routes with named parameters, GET/POST handlers and domain restrictions."
+title = "เราติ้ง (โดยใช้ gorilla/mux)"
+description = "ตัวอย่างการใช้งานแพคเกจ `gorilla/mux` เพื่อสร้างเร้า ตั้งชื่อตัวแปร การจัดการกับ GET/POST เมธอด และการจัดการโดเมน"
 +++
 
-# Routing (using gorilla/mux)
+# เราติ้ง (โดยใช้ gorilla/mux)
 
-## Introduction
-Go's `net/http` package provides a lot of functionalities for the HTTP protocol.
-One thing it doesn't do very well is complex request routing like segmenting a request url into single parameters.
-Fortunately there is a very popular package for this, which is well known for the good code quality in the Go community.
-In this example you will see how to use the `gorilla/mux` package to create routes with named parameters, GET/POST handlers and domain restrictions.
+## เกี่ยวกับบทเรียน
+แพคเกจ `net/http` ในภาษา Go มีฟังก์ชั่นเพื่ออำนวยความสะดวกสำหรับการสร้างและใช้งาน HTTP โปรโตคอล
+แต่มีเรื่องหนึ่งที่ทำได้ไม่ดีนัก คือถ้าหากเราต้องเจอกับรีเควสที่ซับซ้อน
+อย่างเช่นในกรณีที่เราต้องการแยกตัวแปรจากรีเควสในรูปแบบ url ตัวเดียวโดดๆ
+อย่างไรก็แล้วแต่เราก็มีแพคเกจที่เป็นที่นิยมซึ่งถูกพูดถึงกันเป็นอย่างมาใน
+Go คอมมูนิตี้ว่าเป็นแพคเกจที่เขียนออกมาได้ดีและโค้ดมีคุณภาพมาก
+ในบทนี้เราจะมาเรียนรู้การใช้แพคเกจ `gorilla/mux` เพื่อสร้างเร้า ตั้งชื่อตัวแปร จัดการกับ GET/POST เมธอด และการจัดการโดเมน
 
 {{< edison >}}
 
-## Installing the `gorilla/mux` package
-`gorilla/mux` is a package which adapts to Go's default HTTP router. It comes with a lot of features to increase the productivity when writing web applications.
-It is also compliant to Go's default request handler signature `func (w http.ResponseWriter, r *http.Request)`, so the package can be mixed and machted with other
-HTTP libraries like middleware or exisiting applications. Use the `go get` command to install the package from GitHub like so:
+## การติดตั้งแพคเกจ `gorilla/mux`
+`gorilla/mux` คือ แพคเกจที่สร้างมาเพื่อใช้งานร่วมกับ HTTP เร้าเตอร์ของ Go ซึ่งมีฟีเจอร์มากมายที่จะช่วยเพิ่มความรวดเร็วและประสิทธิภาพในการเขียนเว็บแอปพลิเคชัน
+แพคเกจนี้สร้างขึ้นโดยมีการรับตัวแปร `func (w http.ResponseWriter, r *http.Request)` เช่นเดียวกับของ Go ซึ่งนั่นทำให้แพคเกจนี้สามารถใช้งานได้กับ HTTP ไลบรารี่อย่าง middleware และ application ซึ่งถูกสร้างขึ้นมาด้วยแพคเกจ HTTP พื้นฐานของ Go ที่มีอยู่แล้ว เราใช่คำสั่ง `go get` เพื่อติดตั้งแพคเกจจาก Github
+
 {{< highlight sh >}}
 go get -u github.com/gorilla/mux
 {{< / highlight >}}
 
-## Creating a new Router
-First create a new request router. The router is the main router for your web application and will later be passed as parameter to the server.
-It will receive all HTTP connections and pass it on to the request handlers you will register on it.
-You can create a new router like so:
+## สร้างเร้าใหม่
+ขั้นแรก สร้างเร้าตัวใหม่เพื่อรับรีเควส
+เร้าตัวนี้จะเป็นเร้าหลักสำหรับเว็บแอปพลิเคชันของคุณ
+แล้วหลังจากนั้นเราจะทำการส่งพรารามิเตอร์สู่เซิร์ฟเวอร์กัน
+มันจะทำการรับค่าการเชื่อมต่อ HTTP ทั้งหมดและส่งต่อไปให้ handlers ที่คุณจะทำการสร้างขึ้นเพื่อจักการกับรีเควสที่เข้ามา
+เราสามารถสร้างเร้าตัวใหม่ได้ดังนี้
+
 {{< highlight go >}}
 r := mux.NewRouter()
 {{< / highlight >}}
 
-## Registering a Request Handler
-Once you have a new router you can register request handlers like usual.
-The only difference is, that instead of calling `http.HandleFunc(...)`, you call `HandleFunc` on your router like this: `r.HandleFunc(...)`.
+## ระบุ Handler ที่จะใช้งาน
+หลังจากที่คุณสร้างเร้าตัวใหม่เป็ฯที่เรียบร้อยแล้วคุณต้องทำการระบุ handler ที่จะเอาไว้ใช้จัดการกับรีเควสนั้นที่เข้ามาด้วย
+ข้อแตกต่างเพียงอย่างเดียวคือ แทนที่เราจะทำการเรียก `http.HandleFunc(...)` เหมือนกับการใช้งานสแตนดาร์ดไลบรารี่ เราต้องเปลี่ยนไปเรียก `HandleFunc` แบบนี้แทน `r.HandleFunc(...)`
 
-## URL Parameters
-The biggest strength of the `gorilla/mux` Router is the ability to extract segments from the request URL.
-As an example, this is a URL in your application:
+## URL พารามิเตอร์
+ข้อได้เปรียบหลักของ `gorilla/mux` เร้าเตอร์คือความสามารถในการดึงเอาส่วนต่างจากรีเควส URL จากตัวอย่าง สมมุติว่านี่คือ URL จากแอปพลิเคชั่นของคุณ
+
 {{< highlight sh >}}
 /books/go-programming-blueprint/page/10
 {{< / highlight >}}
-This URL has two dynamic segments:
 
-1. Book title slug (go-programming-blueprint)
-2. Page (10)
+จากที่เห็น ​URL จะมีสองส่วนหลักๆ คือ
 
-To have a request handler match the URL mentioned above you replace the dynamic segments of with placeholders in your URL pattern like so:
+1. ชื่อหนังสือ (Books title) (go-programming-blueprint)
+2. หน้า (Page) (10)
+
+ใสการที่เราจะทำการเทียบ URL ที่ได้เห็นไป เราจำเป็นที่จะต้องการทำการแทนที่ค่าแบบจากรูปแบบ URL ที่เราได้กำหนดเอาไว้แบบนี้
+
 {{< highlight go >}}
 r.HandleFunc("/books/{title}/page/{page}", func(w http.ResponseWriter, r *http.Request) {
 	// get the book
@@ -53,8 +60,9 @@ r.HandleFunc("/books/{title}/page/{page}", func(w http.ResponseWriter, r *http.R
 })
 {{< / highlight >}}
 
-The last thing is to get the data from these segments.
-The package comes with the function `mux.Vars(r)` which takes the `http.Request` as parameter and returns a map of the segments.
+จากนั้นส่ิงสุดท้ายคือการที่เราต้องรับค่าตัวแปรและแยกออกเป็นเซกเมนต์
+`gorilla/mux` แพคเกจมาพร้อมกับฟังก์ชั่น `mux.Vars(r)` ซึ่งทำการรับค่าจาก `http.Request` ในรูปแบบของตัวแปร และส่งกลับมาและแมพมาให้เรียบร้อย ซึ่งถูกแยกออกมาเป็นส่วนอย่างชัดเจน
+
 {{< highlight go >}}
 func(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
@@ -63,16 +71,19 @@ func(w http.ResponseWriter, r *http.Request) {
 }
 {{< / highlight >}}
 
-## Setting the HTTP server's router
-Ever wondered what the `nil` in `http.ListenAndServe(":80", nil)` ment? It is the parameter for the main router of the HTTP server.
-By default it's `nil`, which means to use the default router of the `net/http` package. To make use of your own router, replace the `nil`
-with the variable of your router `r`.
+## ติดตั้ง HTTP server ที่เราเพิ่มสร้างไป
+คงจะสงสัยใช่ไหมครับว่า `nil` ใน `http.ListenAndServe(":80", nil)` คืออะไร
+มันก็คือช่องรับค่าตัวแปรสำหรับ เร้าหลักของ HTTP เซิร์ฟเวอร์
+ซึ่งโดยปรกติเราจะส่งค่า `nil` เข้าไปซึ่งนั่นจะหมายความว่าให้ใช้เร้าเตอร์พื้นฐานซึ่งก็คือแพคเกจ `net/http`
+แต่เพิ่มให้สามารถใช้เร้าที่เราพึ่งทำการสร้างได้ เราจำเป็นต้องแทนที่ `nil` ตัวแปรซึ่งเป็นเร้าของเรา `r` เข้าไปแทน
+
 {{< highlight go >}}
 http.ListenAndServe(":80", r)
 {{< / highlight >}}
 
-## The Code (for copy/paste)
-This is the complete code that you can use to try out the things you've learned in this example.
+## โค้ด (สำหรับทดสอบ copy/paste)
+นี่เป็นตัวโค้ดที่เสร็จสมบูรณ์ ซึ่งคุณสามารถนำไปใช้ทดสอบได้ เป็นโค้ดที่คุณได้เรียนรู้มาทั้งหมดในบทเรียนบทนี้
+
 {{< highlight go >}}
 package main
 
@@ -97,10 +108,11 @@ func main() {
 }
 {{< / highlight >}}
 
-## Features of the `gorilla/mux` Router
+## ฟีเจอร์ของ `gorilla/mux`
 
-### Methods
-Restrict the request handler to specific HTTP methods.
+### เมธอด (Methods)
+การระบุและรับรีเควสสำหรับการจัดการกับ  HTTP เมธอด
+
 {{< highlight go >}}
 r.HandleFunc("/books/{title}", CreateBook).Methods("POST")
 r.HandleFunc("/books/{title}", ReadBook).Methods("GET")
@@ -108,20 +120,23 @@ r.HandleFunc("/books/{title}", UpdateBook).Methods("PUT")
 r.HandleFunc("/books/{title}", DeleteBook).Methods("DELETE")
 {{< / highlight >}}
 
-### Hostnames & Subdomains
-Restrict the request handler to specific hostnames or subdomains.
+### ชื่อโฮส และ ซับโดเมน (Hostnames & Subdomains)
+การระบุและรับรีเควสสำหรับการจัดการกับ ชื่อโฮส หรือ ซับโดเมน
+
 {{< highlight go >}}
 r.HandleFunc("/books/{title}", BookHandler).Host("www.mybookstore.com")
 {{< / highlight >}}
 
-### Schemes
+### สกีมา (Schemes)
+การระบุและรับรีเควสสำหรับการจัดการกับ http/https.
 Restrict the request handler to http/https.
 {{< highlight go >}}
 r.HandleFunc("/secure", SecureHandler).Schemes("https")
 r.HandleFunc("/insecure", InsecureHandler).Schemes("http")
 {{< / highlight >}}
 
-### Path Prefixes & Subrouters
+### ชื่อต้นของพาท และเร้าเตอร์รอง (Path Prefixes & Subrouters)
+การระบุและรับรีเควสสำหรับการจัดการกับ ชื่อต้นของพาท
 Restrict the request handler to specific path prefixes.
 {{< highlight go >}}
 bookrouter := r.PathPrefix("/books").Subrouter()
