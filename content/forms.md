@@ -1,12 +1,12 @@
 +++
 weight = 5
-title = "Forms"
-description = "This example will show how to simulate a contact form and parse the message into a struct using the Go programming language."
+title = "ฟอร์ม"
+description = "ตัวอย่างนี้จะแสดงการสร้างฟอร์มสำหรับติดต่อและการส่งข้อมูลกลับไปใน struct ด้วยภาษา Go"
 +++
 
-# Forms
+# ฟอร์ม
 
-This example will show how to simulate a contact form and parse the message into a struct.
+ตัวอย่างนี้จะแสดงการสร้างฟอร์มสำหรับติดต่อและการส่งข้อมูลกลับไปใน struct
 
 {{< edison >}}
 

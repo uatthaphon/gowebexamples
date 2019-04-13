@@ -1,24 +1,25 @@
 +++
-weight = 3
-title = "Templates"
-description = "This example shows how to use the `gorilla/mux` package to create routes with named parameters, GET/POST handlers and domain restrictions."
+weight = 4
+title = "เทมเพลต"
+description = "ตัวอย่างการใช้งานแพคเกจ `gorilla/mux` เพื่อสร้างเร้า ตั้งชื่อตัวแปร การจัดการกับ GET/POST เมธอด และการจัดการโดเมน"
 +++
 
-# Templates
+# เทมเพลต
 
-## Introduction
-Go's `html/template` package provides a rich templating language for HTML templates.
-It is mostly used in web applications to display data in a structured way in a client's browser.
-One great benefit of Go's templating language is the automatic escaping of data.
-There is no need to worry about about XSS attacks as Go parses the HTML template and escapes all inputs before displaying it to the browser.
+## เกี่ยวกับบทเรียน
+แพคเกจ `html/template` ที่มีมาให้เราได้ใช้เป็นเทมเพลตสำหรับภาษา HTML ที่เพรียบร้อม
+สำหรับใช้ในส่วนของการแสดงผลข้อมูลสำหรับเว็บแอปพลิเคชั่นในเว็บเบราว์เซอร์ของผู้ใช้งาน
+ข้อดีอย่างหนึ่งของ เทมเพลตในภาษา Go ก็เห็นจะเป็นเรื่องของการ escape ข้อมูลที่ได้รับมาโดยอัตโนมัติ
+ดังนั้นเราก็หายห่วงในเรื่องการโจมตีแบบ XSS ไปได้เลย เพราะภาษา Go จะทำการวิเคราะห์ HTML เพมเพลต
+และจะ escape อินพุตทั้งหมดที่รับมาก่อนที่จะทำการแสดงผลออกไปยังหน้าเบราว์เซอร์
 
 {{< edison >}}
 
-## First Template
-Writing a template in Go is very simple. This example shows a TODO list, written as an unordered list (ul) in HTML.
-When rendering templates, the data passed in can be any kind of Go's data structures. It may be a simple string or a number,
-it can even be nested data structure as in the example below. To access the data in a template the top most variable is access by `{{.}}`.
-The dot inside the curly braces is called the pipeline and the root element of the data.
+## เทมเพลตตัวแรก
+การใช้งานหรือเขียนเทมเพลตในภาษา Go นั้นไม่มีอะไรซับซ้อนเลย จากตัวอย่างต่อไปนี้จะแสดงให้เห็นการส้าง  TODO ลิส โดยทำการเขียนออกมาเป็น ul ในภาษา HTML
+ในขณะที่ทำการประมวลผลเทมเพลตนั้น ข้อมูลที่ถูกส่งเข้ามาสามารถที่จะเป็นข้อมูลชนิดใดก็ได้ที่มาจากโครงสร้งข้อมูลของภาษา Go มันสามารถรับได้ทั้งแบบตัวอักษรและตัวเลข หรือว่าจะเป็นโครงสร้างข้อมูลแบบซ้อนทับกันเหมือนดังตัวอย่างด้านล่างนี้
+การเข้าถึงข้อมูลชั้นแรกสุดที่ได้รับมาในเทมเพลตเราสามารถเข้าถึงได้โดย `{{.}}`
+จุดข้างในวงเล็บปีกกา นั่นเรียกว่า ไปป์ไลน์ (pipeline) และเป็นองค์ประกอบรากของข้อมูลหรือข้อมูลลำดับแรก
 
 {{< highlight go >}}
 data := TodoPageData{
@@ -43,23 +44,23 @@ data := TodoPageData{
 </ul>
 {{< / highlight >}}
 
-## Control Structures
-The templating language contains a rich set of control structures to render your HTML. Here you will get an overview of the most commonly used ones.
-To get a detailed list of all possible structures visit: <a target="_blank" href="https://golang.org/pkg/text/template/#hdr-Actions">text/template</a>
+## ไวยากรณ์ สำรหรับควบคุมการทำงาน (Control Structure)
+เทมเพลตในภาษา GO ประกอบไปด้วยเซ็ทคำสั่งอันหลากหลายเพื่อควบคุมการทำงานต่างๆ สำหรับการประมวลผล HTML ของคุณ ตัวอย่างต่อไปนี้จะแสดงให้คุณเห็นถึงภาพรวมและคำสั้งต่างๆที่มีคนที่ใช้กันมากที่สุด
+หากต้องการทราบเพ่ิมเติมเกี่ยวกับรายชื่อคำสั่งต่างๆ ที่สามารถใช้งานได้ ขอให้เข้าไปที่ <a target="_blank" href="https://golang.org/pkg/text/template/#hdr-Actions">text/template</a>
 
 Control Structure | Definition
 ---|---
-`{{/* a comment */}}` | Defines a comment
-`{{.}}` | Renders the root element
-`{{.Title}}` | Renders the "Title"-field in a nested element
-`{{if .Done}} {{else}} {{end}}` | Defines an if-Statement
-`{{range .Todos}} {{.}} {{end}}` | Loops over all "Todos" and renders each using `{{.}}`
-`{{block "content" .}} {{end}}` | Defines a block with the name "content"
+`{{/* a comment */}}` | การเขียนคอมเมนต์
+`{{.}}` | แสดงข้อมูลทั้งหมด
+`{{.Title}}` | แสดงข้อมูล "Title" จากข้อมูลที่ได้รับมา
+`{{if .Done}} {{else}} {{end}}` | การเขียนคำสั่ง if
+`{{range .Todos}} {{.}} {{end}}` | ลูป "Todos" และแสดงผลข้อมูลเมื่อทำการลูปด้วยไวยากรณ์ `{{.}}`
+`{{block "content" .}} {{end}}` | กำหนดบล็อก (block) โดยใช้ชื่อว่า "content"
 
-## Parsing Templates from Files
-Template can either be parsed from a string or a file on disk.
-As it is usually the case, that templates are pares from disk, this example shows how to do so.
-In this example there is a template file in the same directory as the Go program called `layout.html`.
+## ใช้เทมเพลตในรูปแบบของไฟล์แยก
+เทมเพลตสามารที่จะใช้งานได้จากทั้ง การเขียนตรงๆหรือจากไฟล์ที่มีอยู่ในเครื่องของเรา
+โดยปรกติแล้วเรามักที่จะใช้เทมเพลตโดยการสร้างไฟล์แยกและเก็บไว้ในเครื่องของเราเสียมากกว่า
+ตัวอย่างด้านล่างจะแสดงให้เห็นวิธีการใช้งาน ตัวอย่างที่เห็นจะมีเทมเพลตในไดเรคทอรี่เดียวกันกับตัวไฟล์โปรแกรมของ Go ซึ่งถูกสร้างชึ้นมาในชื่อ `layout.html`
 
 {{< highlight go >}}
 tmpl, err := template.ParseFiles("layout.html")
@@ -67,10 +68,10 @@ tmpl, err := template.ParseFiles("layout.html")
 tmpl := template.Must(template.ParseFiles("layout.html"))
 {{< / highlight >}}
 
-## Execute a Template in a Request Handler
-Once the template is parsed from disk it's ready to be used in the request handler.
-The `Execute` function accepts an `io.Writer` for writing out the template and an `interface{}` to pass data into the template.
-When the function is called on an `http.ResponseWriter` the Content-Type is header is automatically set in the HTTP response to `Content-Type: text/html; charset=utf-8`.
+## ประมวลผมเทมเพลตใน Request Handler
+เมื่อเรารับเทมเพลตมาจากไฟล์ที่ถูกสร้างขึ้นมาเรียบร้อยแล้ว เราก็สามารถนำมันมาใช้ใน request handler ได้เลย
+ฟังก์ชั่น `Execute` รับค่า `io.Writer` เพื่อใช้เขียนข้อมูลในเทมเพลตและ `interface{}` เพื่อส่งข้อมูลกลับไปให้เทมเพลตอีกทีหนึ่ง
+เมื่อฟังก์ชั่นที่การเรียก `http.ResponseWriter` จากนั้น Content-Type ใน header จะถูกจัดการและเขียนข้อมูลโดยอัตโนมัติและส่งกลับมาเป็น `Content-Type: text/html; charset=utf-8`
 
 {{< highlight go >}}
 func(w http.ResponseWriter, r *http.Request) {
@@ -78,8 +79,8 @@ func(w http.ResponseWriter, r *http.Request) {
 }
 {{< / highlight >}}
 
-## The Code (for copy/paste)
-This is the complete code that you can use to try out the things you've learned in this example.
+## โค้ด (สำหรับทดสอบ copy/paste)
+นี่เป็นตัวโค้ดที่เสร็จสมบูรณ์ ซึ่งคุณสามารถนำไปใช้ทดสอบได้ เป็นโค้ดที่คุณได้เรียนรู้มาทั้งหมดในบทเรียนบทนี้
 {{< highlight go >}}
 package main
 
