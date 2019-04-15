@@ -1,12 +1,12 @@
 +++
 weight = 6
-title = "Assets and Files"
-description = "This example will show how to serve static files like CSS or JS from a specific directory using the http.FileServer in the Go programming language."
+title = "แอสเสทและไฟล์"
+description = "ตัวอย่างต่อไปนี้จะแสดงให้เห็นถึงการใช้งานสแตติกไฟล์ อย่างพวก CSS หรือ JS จากไดเรคทอรี่ที่ถูกเก็บไฟล์เหล่านี้ไว้ด้วย http.FileServer"
 +++
 
-# Assets and Files
+# แอสเสทและไฟล์
 
-This example will show how to serve static files like CSSs, JavaScripts or images from a specific directory.
+ตัวอย่างต่อไปนี้จะแสดงให้เห็นถึงการใช้งานสแตติกไฟล์ อย่างพวก CSS หรือ JS จากไดเรคทอรี่ที่ถูกเก็บไฟล์เหล่านี้ไว้
 
 {{< edison >}}
 

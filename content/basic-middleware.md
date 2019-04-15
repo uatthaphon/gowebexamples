@@ -1,14 +1,14 @@
 +++
 weight = 7
-title = "Middleware (Basic)"
-description = "This example will show how to create basic logging middleware in the Go programming language."
+title = "มิดเดิลแวร์ - ขั้นพื้นฐาน"
+description = "ตัวอย่างต่อไปนี้จะแสดงวิธีการสร้าง logging จากมิดเดิลแวร์ในภาษา Go"
 +++
 
 # Middleware (Basic)
 
-This example will show how to create basic logging middleware in Go.
+ตัวอย่างต่อไปนี้จะแสดงวิธีการสร้าง logging จากมิดเดิลแวร์ในภาษา Go
 
-A middleware simply takes a `http.HandlerFunc` as one of its parameters, wraps it and returns a new `http.HandlerFunc` for the server to call.
+มิดเดิลแวร์จะทำการรับค่า `http.HandlerFunc` เป็นตัวแปรตัวหนึ่ง ซึ่งจะทำการครอบตัวฟังก์ชั่นนั้นเอาไว้และจะส่งค่า `http.HandlerFunc` ตัวใหม่กลับไปจากเซิร์ฟเวอร์
 
 {{< edison >}}
 
