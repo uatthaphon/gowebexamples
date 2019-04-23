@@ -1,16 +1,16 @@
 +++
 weight = 9
 title = "Sessions"
-description = "This example will show how to store data in session cookies using the popular gorilla/sessions package in the Go programming language."
+description = "ตัวอย่างต่อไปนี้จะแสดงวิธีการเก็บข้อมูลใน เซสชั่น คุกกี้ ด้วยแพ็กเกจ gorilla/sessions ในภาษา Go"
 +++
 
-# Sessions
+# เซสชั่น
 
-This example will show how to store data in session cookies using the popular  <a target="_blank" href="https://github.com/gorilla/sessions">gorilla/sessions</a> package in Go.
+ตัวอย่างต่อไปนี้จะแสดงวิธีการเก็บข้อมูลใน เซสชั่น คุกกี้ ด้วยแพ็กเกจ <a target="_blank" href="https://github.com/gorilla/sessions">gorilla/sessions</a> ซึ่งได้รับความนิยมเป็นอย่างมากในภาษา Go
 
-Cookies are small pieces of data stored in the browser of a user and are sent to our server on each request. In them, we can store e.g. whether or not a user is logged in into our website and figure out who he actually is (in our system).
+คุกกี้ คือข้อมูลก้อนเล็กๆ ที่ถูกเก็บเอาไว้ในเบราเซอร์ของผู้ใช้งาน และส่งกลับมายังเซิร์ฟเวอร์ของเราทุกครั้งที่ถูกเรียกใช้งาน ในคุกกี้เราสามารถที่จะเก็บข้อมูลต่างๆ ได้อย่างเช่น ตรวจสอบว่าผู้ใช้งานเข้าสู่ระบบแล้วหรือไม่ หรือเพื่อดูว่าเขาคือใคร (ในระบบของเรา)
 
-In this example we will only allow authenticated users to view our secret message on the `/secret` page. To get access to it, the will first have to visit `/login` to get a valid session cookie, which logs him in. Additionally he can visit `/logout` to revoke his access to our secret message.
+ในตัวอย่างต่อไปนี้เราจะอนุญาติให้ผู้ใช้งานที่ลงทะเบียนในระบบเท่านั้นที่จะสามารถเห็นข้อความลับของเราได้จากหน้า `/secret` ของเรา ในการที่จะสามารถเข้าใช้งานได้อย่างแรกผู้ใช้งานต้องเข้าไปที่หน้า `/login` เพื่อเข้าสู่ระบบและรับ เซสชั่น คุกกี้ เพื่อเข้าสู่ระบบ และเราสามารถเข้าหน้า `/logout` เพื่อยกเลิกการเข้าสู่ระบบได้ และนั่นจะทำให้ผู้ใช้งานไม่เห็น ข้อความลับของเราอีกจนกว่าเขาจะเข้าสู่ระบบอีกครั้ง
 
 {{< edison >}}
 

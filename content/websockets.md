@@ -1,17 +1,17 @@
 +++
 weight = 11
-title = "Websockets"
-description = "This example will show how to work with websockets in Go. We will build a simple server which echoes back everything we send to it."
+title = "เว็บซ็อกเก็ต"
+description = "ตัวอย่างต่อไปนี้จะแสดงวิธีการใช้งานเว็บซ็อกเก็ตในภาษา Go เราจะทำการสร้างเซิร์ฟเวอร์อย่างง่ายที่ทำการแสดงค่าออกมาหลังจากรับค่าที่เรารับมาทุกอย่าง"
 +++
 
-# Websockets
+# เว็บซ็อกเก็ต
 
-This example will show how to work with websockets in Go. We will build a simple server which echoes back everything we send to it.
-For this we have to `go get` the popular <a target="_blank" href="https://github.com/gorilla/websocket">gorilla/websocket</a> library like so:
+ตัวอย่างต่อไปนี้จะแสดงวิธีการใช้งานเว็บซ็อกเก็ตในภาษา Go เราจะทำการสร้างเซิร์ฟเวอร์อย่างง่ายที่ทำการแสดงค่าออกมาหลังจากรับค่าที่เรารับมาทุกอย่าง
+เรามาเริ่มโดยการใช้ `go get` เพื่อใช้งาน <a target="_blank" href="https://github.com/gorilla/websocket">gorilla/websocket</a> ซึ่งเป็นไลบรารีอีกตัวที่ได้รับความนิยมกันเลยดีกว่า
 
 `$ go get github.com/gorilla/websocket`
 
-From now on, every application we write will be able to make use of this library.
+จากตรงนี้ ทุกๆ แอปพลิเคชั่นที่เราสร้างขึ้นก็จะสามารถเรียกใช้งานเจ้าไลบรารีตัวนี้ได้
 
 {{< edison >}}
 

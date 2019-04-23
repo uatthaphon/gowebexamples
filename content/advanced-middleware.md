@@ -1,22 +1,22 @@
 +++
 weight = 8
-title = "Middleware (Advanced)"
-description = "This example will show how to create a more advanced version of middleware in the Go programming language."
+title = "มิดเดิลแวร์ - ขั้นสูง"
+description = "ตัวอย่างต่อไปนี้จะแสดงวิธีการสร้าง มิดเดิลแวร์ขั้นสูง ในภาษา Go"
 +++
 
-# Middleware (Advanced)
+# มิดเดิลแวร์ - ขั้นสูง
 
-This example will show how to create a more advanced version of middleware in Go.
+ตัวอย่างต่อไปนี้จะแสดงวิธีการสร้าง มิดเดิลแวร์ขั้นสูง ในภาษา Go
 
-A middleware in itself simply takes a `http.HandlerFunc` as one of its parameters, wraps it and returns a new `http.HandlerFunc` for the server to call.
+ตัวมิดเดิลแวร์จะทำการรับ `http.HandlerFunc` ในรูปแบบของตัวแปร และทำการครอบมันไว้แล้วจึงส่งค่ากลับไปเป็น `http.HandlerFunc` ตัวใหม่ให้กับเซิร์ฟเวอร์เพื่อรอการเรียกใช้งาน
 
-Here we define a new type `Middleware` which makes it eventually easier to chain multiple middlewares together. This idea is inspired by Mat Ryers' talk about Building APIs.
-You can find a more detailed explaination including the talk <a target="_blank" href="https://medium.com/@matryer/writing-middleware-in-golang-and-how-go-makes-it-so-much-fun-4375c1246e81">here</a>.
+นี่คือคำจัดกัดความใหม่ของ `Middleware` ซึ่งจะทำให้ง่ายต่อการผูก (chain) มิดเดอแวร์หลายๆ ตัวเข้าไว้ด้วยกัน ความคิดนี้ได้รับแรงบันดาลใจมาจาก Mat Ryers ซึ่งได้เคยพูดไว้ในเรื่องเกี่ยวกับการสร้าง APIs ถ้าหากต้องการรู้รายละเอียดเพ่ิมเติม สามารถเข้าไปดูได้ที่ <a target="_blank" href="https://medium.com/@matryer/writing-middleware-in-golang-and-how-go-makes-it-so-much-fun-4375c1246e81">here</a>.
 
 {{< edison >}}
 
 <br />
-This snippet explains in detail how a new middleware is created. In the full example below, we reduce this version by some boilerplate code.
+ตัวอย่างโค้ต่อไปนี่ใช้เพื่อสร้าง มิดเดิลเวร์ตัวใหม่ และในตัวอย่างตัวเต็มเราได้ใช้ตัวอย่างโค้ดสำเร็จรูปในการสร้างเพื่อความรวดเร็ว
+
 {{< highlight go >}}
 func createNewMiddleware() Middleware {
 
@@ -41,7 +41,8 @@ func createNewMiddleware() Middleware {
 }
 {{< / highlight >}}
 <br />
-This is the full example:
+
+นี่คือตัวอย่างตัวเต็ม:
 {{< highlight go >}}
 // advanced-middleware.go
 package main

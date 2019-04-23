@@ -1,12 +1,12 @@
 +++
 weight = 10
-title = "JSON"
-description = "This example will show how to encode and decode JSON data using the encoding/json package in the Go programming language."
+title = "เจสัน"
+description = "ตัวอย่างต่อไปนี้จะแสดงวิธีการ ถอดรหัสและการเข้ารหัสข้อมูลเจสันโดยการใช้แพ็กเกจ encoding/json ในภาษา Go"
 +++
 
-# JSON
+# เจสัน
 
-This example will show how to encode and decode JSON data using the `encoding/json` package.
+ตัวอย่างต่อไปนี้จะแสดงวิธีการ ถอดรหัสและการเข้ารหัสข้อมูลเจสันโดยการใช้แพ็กเกจ `encoding/json`
 
 {{< edison >}}
 

@@ -1,17 +1,17 @@
 +++
 weight = 10
-title = "Password Hashing"
-description = "This example will show how to hash passwords using bcrypt in the Go programming language."
+title = "เข้ารหัสแบบแฮช"
+description = "ตัวอย่งต่อไปนี้เราจะทำการโชว์วิธีการเข้ารหัสพาสเวิร์ดด้วยการใช้ bcrypt ในภาษา Go"
 +++
 
-# Password Hashing (bcrypt)
+# เข้ารหัสแบบแฮช (bcrypt)
 
-This example will show how to hash passwords using bcrypt.
-For this we have to `go get` the golang bcrypt library like so:
+ตัวอย่งต่อไปนี้เราจะทำการโชว์วิธีการเข้ารหัสพาสเวิร์ดด้วยการใช้ bcrypt
+เรามาเริ่มโดยการใช้ `go get` เพื่อใช้งาน golang bcrypt ไลบรารี
 
 `$ go get golang.org/x/crypto/bcrypt`
 
-From now on, every application we write will be able to make use of this library.
+จากตรงนี้ ทุกๆ แอปพลิเคชั่นที่เราสร้างขึ้นก็จะสามารถเรียกใช้งานเจ้าไลบรารีตัวนี้ได้
 
 {{< edison >}}
 
