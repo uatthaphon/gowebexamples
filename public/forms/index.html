@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	
-	<title>Go Web Examples: Forms</title>
+	<title>Go เว็บตัวอย่าง: ฟอร์ม</title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<meta name="google-site-verification" content="Ztd8vuEnIdHM7XE9qXXPgfoVjq9FWnHtK8Y8la08CRM" />
-	<meta name="description" content="This example will show how to simulate a contact form and parse the message into a struct using the Go programming language." />
+	<meta name="description" content="ตัวอย่างนี้จะแสดงการสร้างฟอร์มสำหรับติดต่อและการส่งข้อมูลกลับไปใน struct ด้วยภาษา Go" />
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" />
-	<link rel="canonical" href="https://gowebexamples.com/forms/">
+	<link rel="canonical" href="https://gowebexamples.urairat.com/forms/">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -99,39 +99,40 @@
 			}
 		}
 	</style>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({
-			google_ad_client: "ca-pub-9994791825937062",
-			enable_page_level_ads: true
-		});
-	</script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8182831478992020",
+              enable_page_level_ads: true
+         });
+    </script>
 </head>
 <body>
 
 <div class="container">
 	<div class="sidebar">
-	<div class="brand"><a href="/">Go Web Examples</a> <a class="menu-btn" href="#">Open<br>Menu</a></div>
+	<div class="brand"><a href="/">Go เว็บตัวอย่าง</a> <a class="menu-btn" href="#">เปิด<br>เมนู</a></div>
 	<div class="sections closed">
 		<div class="section">
-			<div class="category">The Basics</div>
-			<div><a href="/hello-world/">Hello World</a></div>
-			<div><a href="/http-server/">HTTP Server</a></div>
-			<div><a href="/routes-using-gorilla-mux/">Routing (using gorilla/mux)</a></div>
-			<div><a href="/templates/">Templates</a></div>
-			<div><a href="/forms/">Requests &amp; Forms</a></div>
-			<div><a href="/static-files/">Assets &amp; Files</a></div>
-			<div><a href="/basic-middleware/">Middleware (Basic)</a></div>
-			<div><a href="/advanced-middleware/">Middleware (Advanced)</a></div>
-			<div><a href="/sessions/">Session</a></div>
-			
-			<div><a href="/json/">JSON</a></div>
-			<div><a href="/websockets/">Websockets</a></div>
+			<div class="category">พื้นฐาน</div>
+            <div><a href="/hello-world/" title="Hello World">Hello World</a></div>
+            <div><a href="/http-server/" title="HTTP Server">HTTP เซิร์ฟเวอร์</a></div>
+            <div><a href="/routes-using-gorilla-mux/" title="Routing - ซึ่งใช้แพ็กเกจ gorilla/mux">เร้าติ้ง</a></div>
+            <div><a href="/templates/" title="Templates">เทมเพลต</a></div>
+            <div><a href="/forms/" title="Requests &amp; Forms">รีเควสต์และฟอร์ม</a></div>
+            <div><a href="/static-files/" title="Assets &amp; Files">แอสเสทและไฟล์</a></div>
+            <div><a href="/basic-middleware/" title="Middleware (Basic)">มิดเดิลแวร์ - ขั้นพื้นฐาน</a></div>
+            <div><a href="/advanced-middleware/" title="Middleware (Advanced)">มิดเดิลแวร์ - ขั้นสูง</a></div>
+            <div><a href="/sessions/" title="Session">เซสชั่น</a></div>
+            
+            <div><a href="/json/" title="JSON"> เจสัน</a></div>
+            <div><a href="/websockets/" title="Websockets">เว็บซ็อกเก็ต</a></div>
+
 		</div>
 		<div class="section">
-			<div class="category">Security</div>
+            <div class="category">ความปลอดภัย</div>
 			
-			<div><a href="/password-hashing/">Password Hashing (bcrypt)</a></div>
+            <div><a href="/password-hashing/" title="Password Hashing (bcrypt)">เข้ารหัสแบบแฮช</a></div>
 			
 		</div>
 		
@@ -145,30 +146,33 @@
 		<a href="https://goo.gl/7EGZQM" class="no-icon" target="_blank"><img style="display: block; width: 100%;" src="/gotham-gopher-shirt.jpg" title="Gotham Gopher T-Shirt"></a>
 		<div style="text-align: center; font-size: 0.8em; text-decoration: underline"><a href="https://goo.gl/7EGZQM" target="_blank">Batman Gopher T-Shirt</a></div>
 		<br>
-		
-		<br>
-		<ins class="adsbygoogle"
-		style="display:block;width:160px;height:600px;margin: auto"
-		data-ad-client="ca-pub-9994791825937062"
-		data-ad-slot="8696634941"></ins>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8182831478992020"
+             data-ad-slot="1954107788"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
 	</div>
 </div>
 
 	<div class="content">
 		
 
-<h1 id="forms">Forms</h1>
+<h1 id="ฟอร-ม">ฟอร์ม</h1>
 
-<p>This example will show how to simulate a contact form and parse the message into a struct.</p>
+<p>ตัวอย่างนี้จะแสดงการสร้างฟอร์มสำหรับติดต่อและการส่งข้อมูลกลับไปใน struct</p>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-client="ca-pub-9994791825937062"
-     data-ad-slot="2297047126"
-     data-ad-format="auto"></ins>
+     data-ad-client="ca-pub-8182831478992020"
+     data-ad-slot="3075617769"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 
@@ -186,28 +190,28 @@
 	Message <span style="color:#458;font-weight:bold">string</span>
 }
 
-<span style="font-weight:bold">func</span> main() {
-	tmpl <span style="font-weight:bold">:=</span> template.Must(template.ParseFiles(<span style="color:#b84">&#34;forms.html&#34;</span>))
+<span style="font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
+	tmpl <span style="font-weight:bold">:=</span> template.<span style="color:#900;font-weight:bold">Must</span>(template.<span style="color:#900;font-weight:bold">ParseFiles</span>(<span style="color:#b84">&#34;forms.html&#34;</span>))
 
-	http.HandleFunc(<span style="color:#b84">&#34;/&#34;</span>, <span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
+	http.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/&#34;</span>, <span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
 		<span style="font-weight:bold">if</span> r.Method <span style="font-weight:bold">!=</span> http.MethodPost {
-			tmpl.Execute(w, <span style="font-weight:bold">nil</span>)
+			tmpl.<span style="color:#900;font-weight:bold">Execute</span>(w, <span style="font-weight:bold">nil</span>)
 			<span style="font-weight:bold">return</span>
 		}
 
 		details <span style="font-weight:bold">:=</span> ContactDetails{
-			Email:   r.FormValue(<span style="color:#b84">&#34;email&#34;</span>),
-			Subject: r.FormValue(<span style="color:#b84">&#34;subject&#34;</span>),
-			Message: r.FormValue(<span style="color:#b84">&#34;message&#34;</span>),
+			Email:   r.<span style="color:#900;font-weight:bold">FormValue</span>(<span style="color:#b84">&#34;email&#34;</span>),
+			Subject: r.<span style="color:#900;font-weight:bold">FormValue</span>(<span style="color:#b84">&#34;subject&#34;</span>),
+			Message: r.<span style="color:#900;font-weight:bold">FormValue</span>(<span style="color:#b84">&#34;message&#34;</span>),
 		}
 
 		<span style="color:#998;font-style:italic">// do something with details
 </span><span style="color:#998;font-style:italic"></span>		_ = details
 
-		tmpl.Execute(w, <span style="font-weight:bold">struct</span>{ Success <span style="color:#458;font-weight:bold">bool</span> }{<span style="font-weight:bold">true</span>})
+		tmpl.<span style="color:#900;font-weight:bold">Execute</span>(w, <span style="font-weight:bold">struct</span>{ Success <span style="color:#458;font-weight:bold">bool</span> }{<span style="font-weight:bold">true</span>})
 	})
 
-	http.ListenAndServe(<span style="color:#b84">&#34;:8080&#34;</span>, <span style="font-weight:bold">nil</span>)
+	http.<span style="color:#900;font-weight:bold">ListenAndServe</span>(<span style="color:#b84">&#34;:8080&#34;</span>, <span style="font-weight:bold">nil</span>)
 }</code></pre></div>
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#998;font-style:italic">&lt;!-- forms.html --&gt;</span>
 {{if .Success}}
@@ -242,19 +246,20 @@
 		<div class="links">
 			
 			
-			<a title="Assets and Files" class="back" href="https://gowebexamples.com/static-files/">← back</a>
+			<a title="แอสเสทและไฟล์" class="back" href="https://gowebexamples.urairat.com/static-files/">← กลับ</a>
 			
-			<a title="Go Web Examples" class="home" href="/">home</a>
+			<a title="Go เว็บตัวอย่าง" class="home" href="/">หน้าแรก</a>
 			
-			<a title="Middleware (Basic)" class="forward" href="https://gowebexamples.com/basic-middleware/">forward →</a>
+			<a title="เทมเพลต" class="forward" href="https://gowebexamples.urairat.com/templates/">ถัดไป →</a>
 			
 			
 		</div>
 		<br /><br />
-		by <a href="https://github.com/philippta">philippta</a>
-		| <script>document.write(atob("PGEgaHJlZj0ibWFpbHRvOnAudGFubGFrQHdlYi5kZSI+ZmVlZGJhY2s8L2E+"));</script>
-		| <a href="https://github.com/gowebexamples/gowebexamples">source</a>
-		| <a href="https://github.com/gowebexamples/gowebexamples#license">license</a>
+        โดย <a href="https://github.com/philippta">philippta</a>
+		| <a href="https://github.com/uatthaphon">ผู้แปล</a>
+		| <a href="mailto:u.atthaphon@gmail.com">ข้อเสนอแนะ</a>
+		| <a href="https://github.com/uatthaphon/gowebexamples">โค้ด</a>
+		| <a href="https://github.com/uatthaphon/gowebexamples#license">ไลเซ่น</a>
 		<div class="right">
 			<a href="/imprint">Legal Disclosure</a>	| <a href="/privacy">Privacy Statement</a>
 		</div>
@@ -266,10 +271,10 @@
 			e.preventDefault();
 			if (menu.classList.contains("closed")) {
 				menu.classList.remove("closed");
-				menuBtn.innerHTML = "Close<br>Menu";
+				menuBtn.innerHTML = "ปิด<br>เมนู";
 			} else {
 				menu.classList.add("closed");
-				menuBtn.innerHTML = "Open<br>Menu";
+				menuBtn.innerHTML = "เปิด<br>เมนู";
 			}
 			return false;
 		});
@@ -278,13 +283,14 @@
 	src="//cdnjs.cloudflare.com/ajax/libs/cookie-banner/1.0.0/cookiebanner.min.js"
 	data-height="32px" data-position="bottom" data-bg="#f0f0f0" data-fg="black"
 	data-message="We use cookies to improve your browsing experience. :-)"></script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103566946-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments)};
-		gtag('js', new Date());
-		gtag('config', 'UA-103566946-2', { 'anonymize_ip': true });
-	</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110324668-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-110324668-2', { 'anonymize_ip': true });
+    </script>
 
 	</div>
 </div>

@@ -3,73 +3,74 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://gowebexamples.com/hello-world/</loc>
+    <loc>https://gowebexamples.urairat.com/hello-world/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/http-server/</loc>
+    <loc>https://gowebexamples.urairat.com/http-server/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/routes-using-gorilla-mux/</loc>
+    <loc>https://gowebexamples.urairat.com/routes-using-gorilla-mux/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/templates/</loc>
+    <loc>https://gowebexamples.urairat.com/templates/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/static-files/</loc>
+    <loc>https://gowebexamples.urairat.com/forms/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/forms/</loc>
+    <loc>https://gowebexamples.urairat.com/static-files/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/basic-middleware/</loc>
+    <loc>https://gowebexamples.urairat.com/basic-middleware/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/advanced-middleware/</loc>
+    <loc>https://gowebexamples.urairat.com/advanced-middleware/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/sessions/</loc>
+    <loc>https://gowebexamples.urairat.com/sessions/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/json/</loc>
+    <loc>https://gowebexamples.urairat.com/password-hashing/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/websockets/</loc>
+    <loc>https://gowebexamples.urairat.com/json/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/password-hashing/</loc>
+    <loc>https://gowebexamples.urairat.com/websockets/</loc>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/imprint/</loc>
-  </url>
-  
-  <url>
-    <loc>https://gowebexamples.com/categories/</loc>
+    <loc>https://gowebexamples.urairat.com/imprint/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/</loc>
+    <loc>https://gowebexamples.urairat.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/privacy/</loc>
+    <loc>https://gowebexamples.urairat.com/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://gowebexamples.com/tags/</loc>
+    <loc>https://gowebexamples.urairat.com/privacy/</loc>
+  </url>
+  
+  <url>
+    <loc>https://gowebexamples.urairat.com/tags/</loc>
     <priority>0</priority>
   </url>
   

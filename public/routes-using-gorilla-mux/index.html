@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 	
-	<title>Go Web Examples: Routing (using gorilla/mux)</title>
+	<title>Go เว็บตัวอย่าง: เราติ้ง (โดยใช้ gorilla/mux)</title>
 	
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<meta name="google-site-verification" content="Ztd8vuEnIdHM7XE9qXXPgfoVjq9FWnHtK8Y8la08CRM" />
-	<meta name="description" content="This example shows how to use the `gorilla/mux` package to create routes with named parameters, GET/POST handlers and domain restrictions." />
+	<meta name="description" content="ตัวอย่างการใช้งานแพ็กเกจ `gorilla/mux` เพื่อสร้างเร้า ตั้งชื่อตัวแปร การจัดการกับ GET/POST เมธอด และการจัดการโดเมน" />
 	<link rel="alternate" type="application/rss+xml" href="/index.xml" />
-	<link rel="canonical" href="https://gowebexamples.com/routes-using-gorilla-mux/">
+	<link rel="canonical" href="https://gowebexamples.urairat.com/routes-using-gorilla-mux/">
 	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 	<link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
 	<link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
@@ -99,39 +99,40 @@
 			}
 		}
 	</style>
-	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-	<script>
-		(adsbygoogle = window.adsbygoogle || []).push({
-			google_ad_client: "ca-pub-9994791825937062",
-			enable_page_level_ads: true
-		});
-	</script>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8182831478992020",
+              enable_page_level_ads: true
+         });
+    </script>
 </head>
 <body>
 
 <div class="container">
 	<div class="sidebar">
-	<div class="brand"><a href="/">Go Web Examples</a> <a class="menu-btn" href="#">Open<br>Menu</a></div>
+	<div class="brand"><a href="/">Go เว็บตัวอย่าง</a> <a class="menu-btn" href="#">เปิด<br>เมนู</a></div>
 	<div class="sections closed">
 		<div class="section">
-			<div class="category">The Basics</div>
-			<div><a href="/hello-world/">Hello World</a></div>
-			<div><a href="/http-server/">HTTP Server</a></div>
-			<div><a href="/routes-using-gorilla-mux/">Routing (using gorilla/mux)</a></div>
-			<div><a href="/templates/">Templates</a></div>
-			<div><a href="/forms/">Requests &amp; Forms</a></div>
-			<div><a href="/static-files/">Assets &amp; Files</a></div>
-			<div><a href="/basic-middleware/">Middleware (Basic)</a></div>
-			<div><a href="/advanced-middleware/">Middleware (Advanced)</a></div>
-			<div><a href="/sessions/">Session</a></div>
-			
-			<div><a href="/json/">JSON</a></div>
-			<div><a href="/websockets/">Websockets</a></div>
+			<div class="category">พื้นฐาน</div>
+            <div><a href="/hello-world/" title="Hello World">Hello World</a></div>
+            <div><a href="/http-server/" title="HTTP Server">HTTP เซิร์ฟเวอร์</a></div>
+            <div><a href="/routes-using-gorilla-mux/" title="Routing - ซึ่งใช้แพ็กเกจ gorilla/mux">เร้าติ้ง</a></div>
+            <div><a href="/templates/" title="Templates">เทมเพลต</a></div>
+            <div><a href="/forms/" title="Requests &amp; Forms">รีเควสต์และฟอร์ม</a></div>
+            <div><a href="/static-files/" title="Assets &amp; Files">แอสเสทและไฟล์</a></div>
+            <div><a href="/basic-middleware/" title="Middleware (Basic)">มิดเดิลแวร์ - ขั้นพื้นฐาน</a></div>
+            <div><a href="/advanced-middleware/" title="Middleware (Advanced)">มิดเดิลแวร์ - ขั้นสูง</a></div>
+            <div><a href="/sessions/" title="Session">เซสชั่น</a></div>
+            
+            <div><a href="/json/" title="JSON"> เจสัน</a></div>
+            <div><a href="/websockets/" title="Websockets">เว็บซ็อกเก็ต</a></div>
+
 		</div>
 		<div class="section">
-			<div class="category">Security</div>
+            <div class="category">ความปลอดภัย</div>
 			
-			<div><a href="/password-hashing/">Password Hashing (bcrypt)</a></div>
+            <div><a href="/password-hashing/" title="Password Hashing (bcrypt)">เข้ารหัสแบบแฮช</a></div>
 			
 		</div>
 		
@@ -145,93 +146,107 @@
 		<a href="https://goo.gl/7EGZQM" class="no-icon" target="_blank"><img style="display: block; width: 100%;" src="/gotham-gopher-shirt.jpg" title="Gotham Gopher T-Shirt"></a>
 		<div style="text-align: center; font-size: 0.8em; text-decoration: underline"><a href="https://goo.gl/7EGZQM" target="_blank">Batman Gopher T-Shirt</a></div>
 		<br>
-		
-		<br>
-		<ins class="adsbygoogle"
-		style="display:block;width:160px;height:600px;margin: auto"
-		data-ad-client="ca-pub-9994791825937062"
-		data-ad-slot="8696634941"></ins>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-8182831478992020"
+             data-ad-slot="1954107788"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
 	</div>
 </div>
 
 	<div class="content">
 		
 
-<h1 id="routing-using-gorilla-mux">Routing (using gorilla/mux)</h1>
+<h1 id="เราต-ง-โดยใช-gorilla-mux">เราติ้ง (โดยใช้ gorilla/mux)</h1>
 
-<h2 id="introduction">Introduction</h2>
+<h2 id="เก-ยวก-บบทเร-ยน">เกี่ยวกับบทเรียน</h2>
 
-<p>Go&rsquo;s <code>net/http</code> package provides a lot of functionalities for the HTTP protocol.
-One thing it doesn&rsquo;t do very well is complex request routing like segmenting a request url into single parameters.
-Fortunately there is a very popular package for this, which is well known for the good code quality in the Go community.
-In this example you will see how to use the <code>gorilla/mux</code> package to create routes with named parameters, GET/POST handlers and domain restrictions.</p>
+<p>แพ็กเกจ <code>net/http</code> ในภาษา Go มีฟังก์ชันเพื่ออำนวยความสะดวกสำหรับการสร้างและใช้งาน HTTP โพรโทคอล
+แต่มีเรื่องหนึ่งที่ทำได้ไม่ดีนัก คือถ้าหากเราต้องเจอกับรีเควสต์ที่ซับซ้อน
+อย่างเช่นในกรณีที่เราต้องการแยกตัวแปรจากรีเควสต์ในรูปแบบ url ตัวเดียวโดดๆ
+อย่างไรก็แล้วแต่เราก็มีแพ็กเกจที่เป็นที่นิยมซึ่งถูกพูดถึงกันเป็นอย่างมาใน
+Go คอมมูนิตี้ว่าเป็นแพ็กเกจที่เขียนออกมาได้ดีและโค้ดมีคุณภาพมาก
+ในบทนี้เราจะมาเรียนรู้การใช้แพ็กเกจ <code>gorilla/mux</code> เพื่อสร้างเร้า ตั้งชื่อตัวแปร จัดการกับ GET/POST เมธอด และการจัดการโดเมน</p>
 
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
-     data-ad-client="ca-pub-9994791825937062"
-     data-ad-slot="2297047126"
-     data-ad-format="auto"></ins>
+     data-ad-client="ca-pub-8182831478992020"
+     data-ad-slot="3075617769"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
 <script>
-(adsbygoogle = window.adsbygoogle || []).push({});
+     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 
-<h2 id="installing-the-gorilla-mux-package">Installing the <code>gorilla/mux</code> package</h2>
+<h2 id="การต-ดต-งแพ-กเกจ-gorilla-mux">การติดตั้งแพ็กเกจ <code>gorilla/mux</code></h2>
 
-<p><code>gorilla/mux</code> is a package which adapts to Go&rsquo;s default HTTP router. It comes with a lot of features to increase the productivity when writing web applications.
-It is also compliant to Go&rsquo;s default request handler signature <code>func (w http.ResponseWriter, r *http.Request)</code>, so the package can be mixed and machted with other
-HTTP libraries like middleware or exisiting applications. Use the <code>go get</code> command to install the package from GitHub like so:
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">go get -u github.com/gorilla/mux</code></pre></div></p>
+<p><code>gorilla/mux</code> คือ แพ็กเกจที่สร้างมาเพื่อใช้งานร่วมกับ HTTP เร้าเตอร์ของ Go ซึ่งมีฟีเจอร์มากมายที่จะช่วยเพิ่มความรวดเร็วและประสิทธิภาพในการเขียนเว็บแอปพลิเคชัน
+แพ็กเกจนี้สร้างขึ้นโดยมีการรับตัวแปร <code>func (w http.ResponseWriter, r *http.Request)</code> เช่นเดียวกับของ Go ซึ่งนั่นทำให้แพ็กเกจนี้สามารถใช้งานได้กับ HTTP ไลบรารีอย่าง middleware และ application ซึ่งถูกสร้างขึ้นมาด้วยแพ็กเกจ HTTP พื้นฐานของ Go ที่มีอยู่แล้ว เราใช่คำสั่ง <code>go get</code> เพื่อติดตั้งแพ็กเกจจาก Github</p>
 
-<h2 id="creating-a-new-router">Creating a new Router</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">go get -u github.com/gorilla/mux</code></pre></div>
 
-<p>First create a new request router. The router is the main router for your web application and will later be passed as parameter to the server.
-It will receive all HTTP connections and pass it on to the request handlers you will register on it.
-You can create a new router like so:
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r <span style="font-weight:bold">:=</span> mux.NewRouter()</code></pre></div></p>
+<h2 id="สร-างเร-าใหม">สร้างเร้าใหม่</h2>
 
-<h2 id="registering-a-request-handler">Registering a Request Handler</h2>
+<p>ขั้นแรก สร้างเร้าตัวใหม่เพื่อรับรีเควสต์
+เร้าตัวนี้จะเป็นเร้าหลักสำหรับเว็บแอปพลิเคชันของคุณ
+แล้วหลังจากนั้นเราจะทำการส่งพรารามิเตอร์สู่เซิร์ฟเวอร์กัน
+มันจะทำการรับค่าการเชื่อมต่อ HTTP ทั้งหมดและส่งต่อไปให้ handlers ที่คุณจะทำการสร้างขึ้นเพื่อจักการกับรีเควสต์ที่เข้ามา
+เราสามารถสร้างเร้าตัวใหม่ได้ดังนี้</p>
 
-<p>Once you have a new router you can register request handlers like usual.
-The only difference is, that instead of calling <code>http.HandleFunc(...)</code>, you call <code>HandleFunc</code> on your router like this: <code>r.HandleFunc(...)</code>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r <span style="font-weight:bold">:=</span> mux.<span style="color:#900;font-weight:bold">NewRouter</span>()</code></pre></div>
 
-<h2 id="url-parameters">URL Parameters</h2>
+<h2 id="ระบ-handler-ท-จะใช-งาน">ระบุ Handler ที่จะใช้งาน</h2>
 
-<p>The biggest strength of the <code>gorilla/mux</code> Router is the ability to extract segments from the request URL.
-As an example, this is a URL in your application:
+<p>หลังจากที่คุณสร้างเร้าตัวใหม่เป็ฯที่เรียบร้อยแล้วคุณต้องทำการระบุ handler ที่จะเอาไว้ใช้จัดการกับรีเควสต์นั้นที่เข้ามาด้วย
+ข้อแตกต่างเพียงอย่างเดียวคือ แทนที่เราจะทำการเรียก <code>http.HandleFunc(...)</code> เหมือนกับการใช้งานสแตนดาร์ดไลบรารี เราต้องเปลี่ยนไปเรียก <code>HandleFunc</code> แบบนี้แทน <code>r.HandleFunc(...)</code></p>
+
+<h2 id="url-พาราม-เตอร">URL พารามิเตอร์</h2>
+
+<p>ข้อได้เปรียบหลักของ <code>gorilla/mux</code> เร้าเตอร์คือความสามารถในการดึงเอาส่วนต่างจากรีเควสต์ URL จากตัวอย่าง สมมุติว่านี่คือ URL จากแอปพลิเคชั่นของคุณ</p>
+
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">/books/go-programming-blueprint/page/10</code></pre></div>
-This URL has two dynamic segments:</p>
+
+<p>จากที่เห็น ​URL จะมีสองส่วนหลักๆ คือ</p>
 
 <ol>
-<li>Book title slug (go-programming-blueprint)</li>
-<li>Page (10)</li>
+<li>ชื่อหนังสือ (Books title) (go-programming-blueprint)</li>
+<li>หน้า (Page) (10)</li>
 </ol>
 
-<p>To have a request handler match the URL mentioned above you replace the dynamic segments of with placeholders in your URL pattern like so:
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.HandleFunc(<span style="color:#b84">&#34;/books/{title}/page/{page}&#34;</span>, <span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
+<p>ใสการที่เราจะทำการเทียบ URL ที่ได้เห็นไป เราจำเป็นที่จะต้องการทำการแทนที่ค่าแบบจากรูปแบบ URL ที่เราได้กำหนดเอาไว้แบบนี้</p>
+
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}/page/{page}&#34;</span>, <span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
 	<span style="color:#998;font-style:italic">// get the book
 </span><span style="color:#998;font-style:italic"></span>	<span style="color:#998;font-style:italic">// navigate to the page
-</span><span style="color:#998;font-style:italic"></span>})</code></pre></div></p>
+</span><span style="color:#998;font-style:italic"></span>})</code></pre></div>
 
-<p>The last thing is to get the data from these segments.
-The package comes with the function <code>mux.Vars(r)</code> which takes the <code>http.Request</code> as parameter and returns a map of the segments.
+<p>จากนั้นส่ิงสุดท้ายคือการที่เราต้องรับค่าตัวแปรและแยกออกเป็นเซกเมนต์
+<code>gorilla/mux</code> แพ็กเกจมาพร้อมกับฟังก์ชัน <code>mux.Vars(r)</code> ซึ่งทำการรับค่าจาก <code>http.Request</code> ในรูปแบบของตัวแปร และส่งกลับมาและแมพมาให้เรียบร้อย ซึ่งถูกแยกออกมาเป็นส่วนอย่างชัดเจน</p>
+
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
-	vars <span style="font-weight:bold">:=</span> mux.Vars(r)
+	vars <span style="font-weight:bold">:=</span> mux.<span style="color:#900;font-weight:bold">Vars</span>(r)
 	vars[<span style="color:#b84">&#34;title&#34;</span>] <span style="color:#998;font-style:italic">// the book title slug
 </span><span style="color:#998;font-style:italic"></span>	vars[<span style="color:#b84">&#34;page&#34;</span>] <span style="color:#998;font-style:italic">// the page
-</span><span style="color:#998;font-style:italic"></span>}</code></pre></div></p>
+</span><span style="color:#998;font-style:italic"></span>}</code></pre></div>
 
-<h2 id="setting-the-http-server-s-router">Setting the HTTP server&rsquo;s router</h2>
+<h2 id="ต-ดต-ง-http-server-ท-เราเพ-มสร-างไป">ติดตั้ง HTTP server ที่เราเพิ่มสร้างไป</h2>
 
-<p>Ever wondered what the <code>nil</code> in <code>http.ListenAndServe(&quot;:80&quot;, nil)</code> ment? It is the parameter for the main router of the HTTP server.
-By default it&rsquo;s <code>nil</code>, which means to use the default router of the <code>net/http</code> package. To make use of your own router, replace the <code>nil</code>
-with the variable of your router <code>r</code>.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">http.ListenAndServe(<span style="color:#b84">&#34;:80&#34;</span>, r)</code></pre></div></p>
+<p>คงจะสงสัยใช่ไหมครับว่า <code>nil</code> ใน <code>http.ListenAndServe(&quot;:80&quot;, nil)</code> คืออะไร
+มันก็คือช่องรับค่าตัวแปรสำหรับ เร้าหลักของ HTTP เซิร์ฟเวอร์
+ซึ่งโดยปรกติเราจะส่งค่า <code>nil</code> เข้าไปซึ่งนั่นจะหมายความว่าให้ใช้เร้าเตอร์พื้นฐานซึ่งก็คือแพ็กเกจ <code>net/http</code>
+แต่เพิ่มให้สามารถใช้เร้าที่เราพึ่งทำการสร้างได้ เราจำเป็นต้องแทนที่ <code>nil</code> ตัวแปรซึ่งเป็นเร้าของเรา <code>r</code> เข้าไปแทน</p>
 
-<h2 id="the-code-for-copy-paste">The Code (for copy/paste)</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">http.<span style="color:#900;font-weight:bold">ListenAndServe</span>(<span style="color:#b84">&#34;:80&#34;</span>, r)</code></pre></div>
 
-<p>This is the complete code that you can use to try out the things you&rsquo;ve learned in this example.
+<h2 id="โค-ด-สำหร-บทดสอบ-copy-paste">โค้ด (สำหรับทดสอบ copy/paste)</h2>
+
+<p>นี่เป็นตัวโค้ดที่เสร็จสมบูรณ์ ซึ่งคุณสามารถนำไปใช้ทดสอบได้ เป็นโค้ดที่คุณได้เรียนรู้มาทั้งหมดในบทเรียนบทนี้</p>
+
 <div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="font-weight:bold">package</span> main
 
 <span style="font-weight:bold">import</span> (
@@ -241,64 +256,69 @@ with the variable of your router <code>r</code>.
 	<span style="color:#b84">&#34;github.com/gorilla/mux&#34;</span>
 )
 
-<span style="font-weight:bold">func</span> main() {
-	r <span style="font-weight:bold">:=</span> mux.NewRouter()
-	r.HandleFunc(<span style="color:#b84">&#34;/books/{title}/page/{page}&#34;</span>, <span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
-		vars <span style="font-weight:bold">:=</span> mux.Vars(r)
+<span style="font-weight:bold">func</span> <span style="color:#900;font-weight:bold">main</span>() {
+	r <span style="font-weight:bold">:=</span> mux.<span style="color:#900;font-weight:bold">NewRouter</span>()
+	r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}/page/{page}&#34;</span>, <span style="font-weight:bold">func</span>(w http.ResponseWriter, r <span style="font-weight:bold">*</span>http.Request) {
+		vars <span style="font-weight:bold">:=</span> mux.<span style="color:#900;font-weight:bold">Vars</span>(r)
 		title <span style="font-weight:bold">:=</span> vars[<span style="color:#b84">&#34;title&#34;</span>]
 		page <span style="font-weight:bold">:=</span> vars[<span style="color:#b84">&#34;page&#34;</span>]
 
-		fmt.Fprintf(w, <span style="color:#b84">&#34;You&#39;ve requested the book: %s on page %s\n&#34;</span>, title, page)
+		fmt.<span style="color:#900;font-weight:bold">Fprintf</span>(w, <span style="color:#b84">&#34;You&#39;ve requested the book: %s on page %s\n&#34;</span>, title, page)
 	})
 
-	http.ListenAndServe(<span style="color:#b84">&#34;:80&#34;</span>, r)
-}</code></pre></div></p>
+	http.<span style="color:#900;font-weight:bold">ListenAndServe</span>(<span style="color:#b84">&#34;:80&#34;</span>, r)
+}</code></pre></div>
 
-<h2 id="features-of-the-gorilla-mux-router">Features of the <code>gorilla/mux</code> Router</h2>
+<h2 id="ฟ-เจอร-ของ-gorilla-mux">ฟีเจอร์ของ <code>gorilla/mux</code></h2>
 
-<h3 id="methods">Methods</h3>
+<h3 id="เมธอด-methods">เมธอด (Methods)</h3>
 
-<p>Restrict the request handler to specific HTTP methods.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.HandleFunc(<span style="color:#b84">&#34;/books/{title}&#34;</span>, CreateBook).Methods(<span style="color:#b84">&#34;POST&#34;</span>)
-r.HandleFunc(<span style="color:#b84">&#34;/books/{title}&#34;</span>, ReadBook).Methods(<span style="color:#b84">&#34;GET&#34;</span>)
-r.HandleFunc(<span style="color:#b84">&#34;/books/{title}&#34;</span>, UpdateBook).Methods(<span style="color:#b84">&#34;PUT&#34;</span>)
-r.HandleFunc(<span style="color:#b84">&#34;/books/{title}&#34;</span>, DeleteBook).Methods(<span style="color:#b84">&#34;DELETE&#34;</span>)</code></pre></div></p>
+<p>การระบุและรับรีเควสต์สำหรับการจัดการกับ  HTTP เมธอด</p>
 
-<h3 id="hostnames-subdomains">Hostnames &amp; Subdomains</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}&#34;</span>, CreateBook).<span style="color:#900;font-weight:bold">Methods</span>(<span style="color:#b84">&#34;POST&#34;</span>)
+r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}&#34;</span>, ReadBook).<span style="color:#900;font-weight:bold">Methods</span>(<span style="color:#b84">&#34;GET&#34;</span>)
+r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}&#34;</span>, UpdateBook).<span style="color:#900;font-weight:bold">Methods</span>(<span style="color:#b84">&#34;PUT&#34;</span>)
+r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}&#34;</span>, DeleteBook).<span style="color:#900;font-weight:bold">Methods</span>(<span style="color:#b84">&#34;DELETE&#34;</span>)</code></pre></div>
 
-<p>Restrict the request handler to specific hostnames or subdomains.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.HandleFunc(<span style="color:#b84">&#34;/books/{title}&#34;</span>, BookHandler).Host(<span style="color:#b84">&#34;www.mybookstore.com&#34;</span>)</code></pre></div></p>
+<h3 id="ช-อโฮส-และ-ซ-บโดเมน-hostnames-subdomains">ชื่อโฮส และ ซับโดเมน (Hostnames &amp; Subdomains)</h3>
 
-<h3 id="schemes">Schemes</h3>
+<p>การระบุและรับรีเควสต์สำหรับการจัดการกับ ชื่อโฮส หรือ ซับโดเมน</p>
 
-<p>Restrict the request handler to http/https.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.HandleFunc(<span style="color:#b84">&#34;/secure&#34;</span>, SecureHandler).Schemes(<span style="color:#b84">&#34;https&#34;</span>)
-r.HandleFunc(<span style="color:#b84">&#34;/insecure&#34;</span>, InsecureHandler).Schemes(<span style="color:#b84">&#34;http&#34;</span>)</code></pre></div></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/books/{title}&#34;</span>, BookHandler).<span style="color:#900;font-weight:bold">Host</span>(<span style="color:#b84">&#34;www.mybookstore.com&#34;</span>)</code></pre></div>
 
-<h3 id="path-prefixes-subrouters">Path Prefixes &amp; Subrouters</h3>
+<h3 id="สก-มา-schemes">สกีมา (Schemes)</h3>
 
-<p>Restrict the request handler to specific path prefixes.
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">bookrouter <span style="font-weight:bold">:=</span> r.PathPrefix(<span style="color:#b84">&#34;/books&#34;</span>).Subrouter()
-bookrouter.HandleFunc(<span style="color:#b84">&#34;/&#34;</span>, AllBooks)
-bookrouter.HandleFunc(<span style="color:#b84">&#34;/{title}&#34;</span>, GetBook)</code></pre></div></p>
+<p>การระบุและรับรีเควสต์สำหรับการจัดการกับ http/https.
+Restrict the request handler to http/https.
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/secure&#34;</span>, SecureHandler).<span style="color:#900;font-weight:bold">Schemes</span>(<span style="color:#b84">&#34;https&#34;</span>)
+r.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/insecure&#34;</span>, InsecureHandler).<span style="color:#900;font-weight:bold">Schemes</span>(<span style="color:#b84">&#34;http&#34;</span>)</code></pre></div></p>
+
+<h3 id="ช-อต-นของพาท-และเร-าเตอร-รอง-path-prefixes-subrouters">ชื่อต้นของพาท และเร้าเตอร์รอง (Path Prefixes &amp; Subrouters)</h3>
+
+<p>การระบุและรับรีเควสต์สำหรับการจัดการกับ ชื่อต้นของพาท
+Restrict the request handler to specific path prefixes.
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go">bookrouter <span style="font-weight:bold">:=</span> r.<span style="color:#900;font-weight:bold">PathPrefix</span>(<span style="color:#b84">&#34;/books&#34;</span>).<span style="color:#900;font-weight:bold">Subrouter</span>()
+bookrouter.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/&#34;</span>, AllBooks)
+bookrouter.<span style="color:#900;font-weight:bold">HandleFunc</span>(<span style="color:#b84">&#34;/{title}&#34;</span>, GetBook)</code></pre></div></p>
 
 			<div class="footer">
 		<div class="links">
 			
 			
-			<a title="HTTP Server" class="back" href="https://gowebexamples.com/http-server/">← back</a>
+			<a title="เทมเพลต" class="back" href="https://gowebexamples.urairat.com/templates/">← กลับ</a>
 			
-			<a title="Go Web Examples" class="home" href="/">home</a>
+			<a title="Go เว็บตัวอย่าง" class="home" href="/">หน้าแรก</a>
 			
-			<a title="Templates" class="forward" href="https://gowebexamples.com/templates/">forward →</a>
+			<a title="HTTP เซิร์ฟเวอร์" class="forward" href="https://gowebexamples.urairat.com/http-server/">ถัดไป →</a>
 			
 			
 		</div>
 		<br /><br />
-		by <a href="https://github.com/philippta">philippta</a>
-		| <script>document.write(atob("PGEgaHJlZj0ibWFpbHRvOnAudGFubGFrQHdlYi5kZSI+ZmVlZGJhY2s8L2E+"));</script>
-		| <a href="https://github.com/gowebexamples/gowebexamples">source</a>
-		| <a href="https://github.com/gowebexamples/gowebexamples#license">license</a>
+        โดย <a href="https://github.com/philippta">philippta</a>
+		| <a href="https://github.com/uatthaphon">ผู้แปล</a>
+		| <a href="mailto:u.atthaphon@gmail.com">ข้อเสนอแนะ</a>
+		| <a href="https://github.com/uatthaphon/gowebexamples">โค้ด</a>
+		| <a href="https://github.com/uatthaphon/gowebexamples#license">ไลเซ่น</a>
 		<div class="right">
 			<a href="/imprint">Legal Disclosure</a>	| <a href="/privacy">Privacy Statement</a>
 		</div>
@@ -310,10 +330,10 @@ bookrouter.HandleFunc(<span style="color:#b84">&#34;/{title}&#34;</span>, GetBoo
 			e.preventDefault();
 			if (menu.classList.contains("closed")) {
 				menu.classList.remove("closed");
-				menuBtn.innerHTML = "Close<br>Menu";
+				menuBtn.innerHTML = "ปิด<br>เมนู";
 			} else {
 				menu.classList.add("closed");
-				menuBtn.innerHTML = "Open<br>Menu";
+				menuBtn.innerHTML = "เปิด<br>เมนู";
 			}
 			return false;
 		});
@@ -322,13 +342,14 @@ bookrouter.HandleFunc(<span style="color:#b84">&#34;/{title}&#34;</span>, GetBoo
 	src="//cdnjs.cloudflare.com/ajax/libs/cookie-banner/1.0.0/cookiebanner.min.js"
 	data-height="32px" data-position="bottom" data-bg="#f0f0f0" data-fg="black"
 	data-message="We use cookies to improve your browsing experience. :-)"></script>
-	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-103566946-2"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments)};
-		gtag('js', new Date());
-		gtag('config', 'UA-103566946-2', { 'anonymize_ip': true });
-	</script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110324668-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-110324668-2', { 'anonymize_ip': true });
+    </script>
 
 	</div>
 </div>
