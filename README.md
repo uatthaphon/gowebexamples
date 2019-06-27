@@ -2,7 +2,7 @@ Forked มาจาก [Go Web Examples](https://gowebexamples.com/)
 
 # Go Web Examples
 
-[Go Web Examples](https://gowebexamples.urairat.com/) provides easy to understand snippets on how to do web development in Go and is inspired by [Go By Example](https://gowebexamples.urairat.com/), which has a great introduction into the fundamentals of this language.
+[Go Web Examples](https://gowebexamples.urairat.com/) provides easy to understand snippets on how to do web development in Go and is inspired by [Go By Example](https://gobyexample.com/), which has a great introduction into the fundamentals of this language.
 
 Go Web Examples is hosted on: https://gowebexamples.urairat.com/
 
